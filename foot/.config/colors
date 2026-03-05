@@ -1,0 +1,25 @@
+# Base16 Classic Dark - foot color config
+# Jason Heeris (http://heeris.id.au)
+[colors]
+background=151515
+foreground=d0d0d0
+
+# Normal colors
+regular0=151515 # Black, could also be base01
+regular1=ac4142 # Red
+regular2=90a959 # Green
+regular3=f4bf75 # Yellow
+regular4=6a9fb5 # Blue
+regular5=aa759f # Magenta
+regular6=75b5aa # Cyan
+regular7=d0d0d0 # White
+
+# Bright colors
+bright0=505050
+bright1=d28445
+bright2=202020
+bright3=303030
+bright4=b0b0b0
+bright5=e0e0e0
+bright6=8f5536
+bright7=f5f5f5
