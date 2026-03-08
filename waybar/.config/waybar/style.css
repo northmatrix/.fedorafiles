@@ -1,0 +1,315 @@
+@import "colors.css";
+
+* {
+    font-family: 'JetBrains Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+window#waybar {
+    background-color: @base00;
+    border-bottom: 2px solid @base01;
+    color: @base05;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+button:hover {
+    background: @base01;
+}
+
+/* ==================== WORKSPACES ==================== */
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: @base04;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background: @base01;
+    color: @base06;
+}
+
+#workspaces button.focused {
+    background-color: transparent;
+    color: @base0D;
+    font-weight: bold;
+    box-shadow: inset 0 -2px @base0D;
+}
+
+#workspaces button.urgent {
+    background-color: transparent;
+    color: @base08;
+    box-shadow: inset 0 -2px @base08;
+    animation: urgent-blink 1s ease infinite;
+}
+
+/* @keyframes urgent-blink { */
+/*     0%, 100% { opacity: 1; } */
+/*     50% { opacity: 0.5; } */
+/* } */
+
+/* ==================== ALL MODULES ==================== */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#language,
+#keyboard-state {
+    padding: 0 12px;
+    background-color: transparent;
+    color: @base05;
+    margin: 0 2px;
+}
+
+#window,
+#workspaces {
+    margin: 0 6px;
+}
+
+/* ==================== CLOCK ==================== */
+#clock {
+    color: @base07;
+    font-weight: bold;
+}
+
+/* ==================== BATTERY ==================== */
+#battery {
+    color: @base0B;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @base0B;
+}
+
+#battery.warning:not(.charging) {
+    color: @base09;
+}
+
+#battery.critical:not(.charging) {
+    color: @base08;
+    animation: battery-blink 0.5s ease infinite;
+}
+
+/* @keyframes battery-blink { */
+/*     0%, 100% { opacity: 1; } */
+/*     50% { opacity: 0.3; } */
+/* } */
+
+/* ==================== POWER PROFILES ==================== */
+#power-profiles-daemon.performance {
+    color: @base08;
+}
+
+#power-profiles-daemon.balanced {
+    color: @base0D;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @base0B;
+}
+
+/* ==================== SYSTEM RESOURCES ==================== */
+#cpu {
+    color: @base0D;
+}
+
+#memory {
+    color: @base0E;
+}
+
+#disk {
+    color: @base0C;
+}
+
+#temperature {
+    color: @base09;
+}
+
+#temperature.critical {
+    color: @base08;
+    animation: temp-blink 0.8s ease infinite;
+}
+
+/* @keyframes temp-blink { */
+/*     0%, 100% { opacity: 1; } */
+/*     50% { opacity: 0.4; } */
+/* } */
+
+/* ==================== BACKLIGHT ==================== */
+#backlight {
+    color: @base0A;
+}
+
+/* ==================== NETWORK ==================== */
+#network {
+    color: @base0D;
+}
+
+#network.disconnected {
+    color: @base03;
+}
+
+/* ==================== AUDIO ==================== */
+#pulseaudio {
+    color: @base0D;
+}
+
+#pulseaudio:hover {
+    background-color: @base01;
+    color: @base0D;
+}
+
+#pulseaudio.muted {
+    color: @base03;
+}
+
+#wireplumber {
+    color: @base0D;
+}
+
+#wireplumber.muted {
+    color: @base03;
+}
+
+/* ==================== MEDIA ==================== */
+#custom-media {
+    color: @base0B;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    color: @base0B;
+}
+
+#custom-media.custom-vlc {
+    color: @base09;
+}
+
+/* ==================== MPD ==================== */
+#mpd {
+    color: @base0B;
+}
+
+#mpd.disconnected {
+    color: @base03;
+}
+
+#mpd.stopped {
+    color: @base04;
+}
+
+#mpd.paused {
+    color: @base0C;
+}
+
+/* ==================== TRAY ==================== */
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @base08;
+}
+
+/* ==================== IDLE INHIBITOR ==================== */
+#idle_inhibitor {
+    color: @base03;
+}
+
+#idle_inhibitor.activated {
+    color: @base0A;
+}
+
+/* ==================== LANGUAGE & KEYBOARD ==================== */
+#language {
+    color: @base0C;
+    padding: 0 8px;
+    margin: 0 4px;
+}
+
+#keyboard-state {
+    color: @base0B;
+    padding: 0;
+    margin: 0 4px;
+}
+
+#keyboard-state > label {
+    padding: 0 6px;
+    color: @base0B;
+}
+
+#keyboard-state > label.locked {
+    color: @base07;
+    background: @base01;
+}
+
+/* ==================== SCRATCHPAD ==================== */
+#scratchpad {
+    color: @base04;
+}
+
+#scratchpad.empty {
+    color: transparent;
+}
+
+/* ==================== PRIVACY ==================== */
+#privacy {
+    padding: 0;
+    margin: 0 4px;
+}
+
+#privacy-item {
+    padding: 0 6px;
+}
+
+#privacy-item.screenshare {
+    color: @base08;
+}
+
+#privacy-item.audio-in {
+    color: @base0B;
+}
+
+#privacy-item.audio-out {
+    color: @base0D;
+}
+
+/* ==================== MODE ==================== */
+#mode {
+    background-color: @base01;
+    color: @base0D;
+    box-shadow: inset 0 -2px @base0D;
+    padding: 0 12px;
+}
